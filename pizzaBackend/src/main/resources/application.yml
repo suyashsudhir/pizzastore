@@ -1,0 +1,21 @@
+spring:
+  data:
+    cassandra:
+      port: 9042
+      contact-points: mycassandra
+      keyspace-name: pizzastore
+      entity-base-package: com.example.pizzabackend.pizzabackend.models
+    mongodb:
+      authentication-database: admin
+      uri: mongodb+srv://mongo:mongo@cluster0.wl0dc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+      database: pizzastore
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 1096860872125-anktlrk74tlotbem09ca2cirnf7kd8r2.apps.googleusercontent.com
+            clientSecret: gZ7lr8ieyUx2479MsbVlGYLH
+            scope:
+              - email
+              - profile
