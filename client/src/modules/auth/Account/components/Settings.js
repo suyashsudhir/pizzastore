@@ -78,7 +78,7 @@ function Settings({ user }) {
      <form onSubmit={handleSubmit(handleInfoUpdate)}>
      <div className="settings-form-container">
 
-         <div className="text-center ">
+
            <input
 
                className="brand-input mt-3"
@@ -87,31 +87,31 @@ function Settings({ user }) {
                disabled
                defaultValue={user.email}
            />
-         </div>
-         <div className="text-center mt-3">
+
+
            <input
                className="brand-input"
                placeholder="Name"
                {...register("name")}
                defaultValue={user.fullname}
            />
-         </div>
-         <div className="text-center mt-3">
+
+
            <input
                className="brand-input"
                placeholder="Address"
                {...register("address")}
                defaultValue={user.address}
            />
-         </div>
-         <div className="text-center mt-3">
+
+
            <input
                className=" brand-input"
                placeholder="Phone"
                {...register("phone")}
                defaultValue={user.phone}
            />
-         </div>
+
 
            <button type="submit" className="brand-btn" >
              {infoUpdate ? "Updaing.." : "Update Info"}

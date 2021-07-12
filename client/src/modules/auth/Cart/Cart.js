@@ -8,11 +8,12 @@ import _ from 'lodash';
 function Cart() { 
   let quantityArray = [0,1,2,3,4,5,6,7,8,9,10,11]
   const { handleSubmit, register } = useForm();
-    const [cartEmpty] = useState(
+    const [cartEmpty, setCartEmpty] = useState(
       window.localStorage.getItem("cart")? false: true
     );
-    const [cart] = useState( JSON.parse(window.localStorage.getItem('cart')));
+    const [cart, setCart] = useState( JSON.parse(window.localStorage.getItem('cart')));
     const [user, setuser] = useState({});
+    const [cartUpdated, setCartUpdated] = useState(false)
     const [finalPrice, setfinalPrice] = useState({
       tax: 0,
       total: 0,
@@ -28,7 +29,7 @@ function Cart() {
       if (window.localStorage.getItem("cart")){
 
         cart.items.forEach((item) => {
-          final = final + (item.price * item.quantity);
+          final = final + (item.price );
         });
       console.log(final);
       const tax = final * 0.18;
@@ -39,7 +40,7 @@ function Cart() {
         totalBeforeTax: final.toFixed(2)
       })
       }
-    }, []);
+    }, [cartUpdated, cart, cartEmpty]);
 
    const  handleCheckout = (values) => {
      console.log(values)
@@ -68,14 +69,103 @@ function Cart() {
 
          window.localStorage.setItem("cart", JSON.stringify(cartInfo));
      };
+   const updateCart = (item) => {
+    if(cart.items.length<=1){
+        window.localStorage.removeItem('cart');
+        setCartEmpty(true)
+    }
+    else {
+        let currentItems =  _.cloneDeep(cart.items).filter(x=> item.id !== x.id);
+        console.log(currentItems);
+        let updatedCart = {
+            ...cart,
+            items: currentItems
+        }
+        window.localStorage.setItem("cart", JSON.stringify(updatedCart))
+        setCart(updatedCart)
+        setCartUpdated(true);
+    }
+
+   }
     return (
       <>
 
         <Navbar active="Cart" showSearch={false} />
         {!cartEmpty && (
           <div className="cart-container">
-            <div>Hello</div>
+            <div className={"cart-form-container"}>
+                <h1>Payment & Shipping Information</h1>
+                <form onSubmit={handleSubmit(handleCheckout)}>
+                    <div className="form-container">
+
+                        <input
+                            className="brand-input mt-4"
+                            placeholder="Email"
+                            {...register("email")}
+                            defaultValue={user.email}
+                        />
+
+
+                        <input
+                            className="brand-input"
+                            placeholder="Address"
+                            {...register("address")}
+                            defaultValue={user.address}
+                        />
+
+
+                        <input
+                            className="brand-input"
+                            placeholder="Phone"
+                            {...register("phone")}
+                            defaultValue={user.phone}
+                        />
+
+                    <div className="price-info">
+                        <div
+                            className="price-info-row"
+
+                        >
+                            <div >
+                                <strong>Sub Total</strong>
+                            </div>
+
+                            <div>
+                                ₹{finalPrice.totalBeforeTax}
+                            </div>
+                        </div>
+                        <div
+                            className="price-info-row"
+
+                        >
+                            <div className="col">
+                                <strong>Tax</strong>
+                            </div>
+
+                            <div className="col ">₹{finalPrice.tax}</div>
+                        </div>
+                        <div
+                            className="price-info-row"
+
+                        >
+                            <div className="col">
+                                <strong>Total</strong>
+                            </div>
+
+                            <div className="col ">₹{finalPrice.total}</div>
+                        </div>
+                    </div>
+
+
+                        <button className="brand-btn" type="submit">
+                            Pay ₹{finalPrice.total.toFixed(2)}
+                        </button>
+
+                    </div>
+                </form>
+            </div>
             <div className="cart-item-container">
+                <h1>Cart Summary</h1>
               {!cartEmpty &&
               cart.items.map((item) => (
                   <div className="cart-item">
@@ -83,7 +173,7 @@ function Cart() {
                       <img src={item.image} />
                       <div className="item-info">
                         <h3>{item.name}</h3>
-                        <p>{item.description}</p>
+                        <p className="item-desc">{item.description}</p>
                         <p>
                               <span>
                                 <strong>Size: </strong>
@@ -98,11 +188,10 @@ function Cart() {
                     </div>
                     <div className="item-price">
                       <p className="font-18">₹{item.price}</p>
-                      <select className="brand-select" defaultValue={item.quantity}>
-                        {quantityArray.map(i => (
-                            <option key={i} value={i}>{i}</option>
-                        ))}
-                      </select>
+                      <p className="font-18">
+                        <strong>Quantity: </strong>{item.quantity}
+                      </p>
+                      <span className="text-red" onClick={() => updateCart(item)}>Remove</span>
                     </div>
                   </div>
               ))}
@@ -121,7 +210,7 @@ function Cart() {
               </p>
               <p className="font-18">
                 Browse our{" "}
-                <a href="/">Menu</a> page.
+                <a href="/menu">Menu</a>.
               </p>
             </div>
           </div>

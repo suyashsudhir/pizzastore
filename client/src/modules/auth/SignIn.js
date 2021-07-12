@@ -70,48 +70,48 @@ function SignIn({history}) {
                             onSubmit={handleSubmit(submitForm)}
                         >
                             <div className="signin-form">
-                              <div className="signin-field">
-                                  <input
-                                      className={`mb-3 ${
-                                          errors.username ? "brand-input-error" : "brand-input"
-                                      }`}
-                                      type="text"
-                                      {...register("username")}
-
-                                  />
-                                  {errors.username && (
-                                      <div className="mt-1 mb-3 text-red">
-                                          {errors.username.message}
-                                      </div>
-                                  )}
-                              </div>
                                 <div className="signin-field">
-                                <input
-                                    className={`mb-3 ${
-                                        errors.password ? "brand-input-error" : "brand-input"
-                                    }`}
-                                    type="password"
-                                    {...register("password")}
-                                />
-                                {errors.password && (
-                                    <div className="mt-1 mb-3 text-red">
-                                        {errors.password.message}
-                                    </div>
-                                )}
-                            </div>
-                              <div className="signin-field">
-                                  <input type="checkbox"
-                                         id={"remeberme"}
-                                         className="mb-3"
-                                         name={"remeberme"}
-                                         checked={rememberMe}
-                                         onClick={() => setRememberMe(!rememberMe)}
-                                         {...register("rememberme")}
-                                  />
-                                  <label htmlFor={"remeberme"}>Remember Me</label>
+                                    <input
+                                        className={`mb-3 ${
+                                            errors.username ? "brand-input-error" : "brand-input"
+                                        }`}
+                                        type="text"
+                                        {...register("username")}
 
-                              </div>
+                                    />
+                                    {errors.username && (
+                                        <div className="mt-1 mb-3 text-red">
+                                            {errors.username.message}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="signin-field">
+                                    <input
+                                        className={`mb-3 ${
+                                            errors.password ? "brand-input-error" : "brand-input"
+                                        }`}
+                                        type="password"
+                                        {...register("password")}
+                                    />
+                                    {errors.password && (
+                                        <div className="mt-1 mb-3 text-red">
+                                            {errors.password.message}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="signin-field">
+                                    <input type="checkbox"
+                                           id={"remeberme"}
+                                           className="mb-3"
+                                           name={"remeberme"}
+                                           checked={rememberMe}
+                                           onClick={() => setRememberMe(!rememberMe)}
+                                           {...register("rememberme")}
+                                    />
+                                    <label htmlFor={"remeberme"}>Remember Me</label>
 
+                                </div>
+                                <div className="signin-field">
                                     <button
                                         className="brand-btn"
                                         type="submit"
@@ -119,7 +119,7 @@ function SignIn({history}) {
                                     >
                                         {signIn ? <Loader active={true} inverted={true}/> : "Sign In"}
                                     </button>
-
+                                </div>
                             </div>
                         </form>
                     </div>

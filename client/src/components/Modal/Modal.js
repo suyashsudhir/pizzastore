@@ -15,7 +15,7 @@ const Modal = ({
     })
     return(
 
-        <>
+
             <div ref={modalRef} className="modal-window">
                 <div>
                     <span onClick={onClose} title="Close" className="modal-close">Close</span>
@@ -34,7 +34,7 @@ const Modal = ({
 
                 </div>
             </div>
-        </>
+
     )
 }
 export default Modal;

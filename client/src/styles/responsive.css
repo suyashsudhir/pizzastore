@@ -1,0 +1,269 @@
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .landing-page-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0;
+  }
+  .landing-page-container .hero-text {
+    order: 2;
+    margin: 0;
+  }
+  .landing-page-container .hero-text h1 {
+    margin-top: 1em;
+    font-size: 36px !important;
+  }
+  .landing-page-container .hero-text p {
+    font-size: 14px !important;
+  }
+  .landing-page-container .hero-text a.brand-btn {
+    width: 75px !important;
+    height: 25px !important;
+    text-align: center !important;
+    font-size: 14px !important;
+  }
+  .landing-page-container img {
+    order: 1;
+    margin-top: 5em;
+    width: 100%;
+  }
+
+  .navbar {
+    padding: 0;
+    width: 100vw;
+  }
+
+  .nav-logo {
+    font-size: 36px;
+    margin-left: 10px;
+  }
+
+  .brand-btn {
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 5px 0 0 0;
+  }
+
+  .menu-item-card {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr) !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .menu-item-card .pizza-card {
+    margin: 1em;
+    width: 350px;
+  }
+
+  .search-box-home {
+    padding: 0 !important;
+    margin-right: 10px !important;
+    float: none !important;
+    width: 100vw !important;
+  }
+  .search-box-home .brand-input {
+    margin: 0 !important;
+    width: 72% !important;
+  }
+  .search-box-home img {
+    right: 2em !important;
+  }
+
+  .empty-cart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .empty-cart-container .font-36 {
+    font-size: 24px !important;
+    margin-bottom: 0.2em;
+  }
+  .empty-cart-container .font-18 {
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .cart-container {
+    display: flex !important;
+    flex-direction: column;
+  }
+  .cart-container .cart-item-container {
+    width: 100%;
+    border-bottom: 1px solid #e5e5e5;
+    order: 1;
+    height: 200px;
+  }
+  .cart-container .cart-item-container h1 {
+    font-size: 20px;
+  }
+  .cart-container .cart-item-container .cart-item {
+    width: 250px;
+    height: 150px !important;
+    display: flex !important;
+    flex-direction: column;
+  }
+  .cart-container .cart-item-container .cart-item .item-image img {
+    display: none !important;
+  }
+  .cart-container .cart-item-container .cart-item .item-image .item-desc {
+    display: none;
+  }
+  .cart-container .cart-item-container .cart-item .item-image p {
+    font-size: 0.7em !important;
+  }
+  .cart-container .cart-item-container .cart-item .item-image h3 {
+    font-size: 15px;
+  }
+  .cart-container .cart-item-container .cart-item .item-price p {
+    order: 2;
+    font-size: 15px !important;
+    margin: 0.5em;
+  }
+  .cart-container .cart-item-container .cart-item .item-price span {
+    order: 1;
+    font-size: 15px !important;
+  }
+  .cart-container .cart-form-container {
+    order: 2;
+  }
+  .cart-container .cart-form-container h1 {
+    text-align: center;
+    margin: 1em 1em 0 1em;
+    font-size: 20px;
+  }
+  .cart-container .cart-form-container .form-container {
+    display: flex !important;
+    align-items: center !important;
+    padding: 1em 1.5em;
+  }
+  .cart-container .cart-form-container .form-container .brand-btn {
+    padding: 0.7em;
+  }
+  .cart-container .cart-form-container .form-container input {
+    margin: 0.5em 0;
+  }
+  .cart-container .cart-form-container .form-container .price-info {
+    width: 100%;
+    padding: 0 1.5em;
+    align-items: center !important;
+    justify-content: center;
+  }
+  .cart-container .cart-form-container .form-container .price-info .price-info-row {
+    align-items: center;
+    justify-content: center;
+    margin: 0.5em 0 0.5em 0.2em;
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .nav-item {
+    display: none;
+    margin: 2.5rem 0;
+  }
+
+  .account-component-container {
+    width: 100vw;
+  }
+  .account-component-container .brand-select {
+    display: block;
+    margin: 1em auto;
+  }
+  .account-component-container .sidebar-container {
+    display: none;
+  }
+  .account-component-container h1 {
+    text-align: center;
+  }
+  .account-component-container .order-item-container {
+    width: 100% !important;
+  }
+  .account-component-container .order-item-container .order-card {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px !important;
+  }
+  .account-component-container .order-item-container .order-card h2 {
+    font-size: 18px !important;
+  }
+  .account-component-container .order-item-container .order-card p {
+    margin: 0;
+  }
+  .account-component-container .order-item-container .order-card .brand-btn {
+    width: 80%;
+  }
+  .account-component-container .security-container {
+    padding: 1em;
+    width: 100vw;
+  }
+  .account-component-container .security-container h2 {
+    text-align: center;
+  }
+  .account-component-container .security-container form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1em;
+    width: 100%;
+  }
+  .account-component-container .security-container form .brand-btn {
+    box-sizing: border-box !important;
+    padding: 1em;
+    width: 100%;
+  }
+  .account-component-container .settings-container {
+    width: 100vw;
+    display: flex !important;
+    flex-direction: column;
+  }
+  .account-component-container .settings-container .profile-picture {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .account-component-container .settings-container .settings-form-container {
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center !important;
+  }
+  .account-component-container .settings-container .settings-form-container input {
+    width: 80%;
+  }
+  .account-component-container .settings-container .settings-form-container .brand-btn {
+    width: 90%;
+  }
+
+  .signin-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .signin-wrapper .signin-image {
+    display: none !important;
+  }
+  .signin-wrapper .signin-form-wrapper {
+    margin: 0 !important;
+    padding: 1em 1em !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .signin-wrapper .signin-form-wrapper h1 {
+    width: 100% !important;
+  }
+  .signin-wrapper .signin-form-wrapper .signin-card {
+    padding: 0 !important;
+    height: 500px !important;
+    width: 100% !important;
+  }
+  .signin-wrapper .signin-form-wrapper .signin-card h4 {
+    font-size: 18px !important;
+  }
+  .signin-wrapper .signin-form-wrapper .signin-card .brand-btn {
+    padding: 0.5em;
+  }
+}
+
+/*# sourceMappingURL=responsive.css.map */

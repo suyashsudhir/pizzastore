@@ -20,14 +20,22 @@ function Account(props) {
 
         <div className="account-component-container">
             <Sidebar activeValue={activeVal}/>
-            {activetab === 'orders' ? (
-                <Orders user={props.authUser}/>
-            ):activetab === 'security' ? (
-                <Security user={props.authUser}/>
-                )
-                : (
-                <Settings user={props.authUser}/>
-            )}
+            <div>
+                <select className="brand-select" defaultValue={activetab} onChange={(e) => setactivetab(e.target.value)}>
+                    <option value="orders">Your Orders</option>
+                    <option value="general">General</option>
+                    <option value="security">Security</option>
+
+                </select>
+                {activetab === 'orders' ? (
+                    <Orders user={props.authUser}/>
+                ):activetab === 'security' ? (
+                        <Security user={props.authUser}/>
+                    )
+                    : (
+                        <Settings user={props.authUser}/>
+                    )}
+            </div>
         </div>
       {/*<div*/}
       {/*  className="container-fluid"*/}

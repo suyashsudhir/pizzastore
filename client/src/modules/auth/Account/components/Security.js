@@ -68,13 +68,13 @@ function Security({ user }) {
     }
   };
   return (
-    <div>
+    <div className="security-container">
       <h2>Change Your Password</h2>
       <form onSubmit={handleSubmit(handleChangePassword)}>
         <div className="text-center ">
           <input
             type="password"
-            style={{ width: "100%" }}
+
             className={errors.password ? "brand-input-error" : "brand-input"}
             placeholder="Current Password"
             {...register("password")}
@@ -86,7 +86,7 @@ function Security({ user }) {
         <div className="text-center mt-3">
           <input
             type="password"
-            style={{ width: "100%" }}
+
             className={errors.newPass ? "brand-input-error" : "brand-input"}
             placeholder="New Password"
             {...register("newPass")}
@@ -98,7 +98,7 @@ function Security({ user }) {
         <div className="text-center mt-3">
           <input
             type="password"
-            style={{ width: "100%" }}
+
             className={errors.confirmPass ? "brand-input-error" : "brand-input"}
             placeholder="Confirm Password"
             {...register("confirmPass")}
@@ -108,7 +108,7 @@ function Security({ user }) {
           )}
         </div>
         <div className="text-center mt-3">
-          <button type="submit" className="brand-btn" style={{ width: "100%" }}>
+          <button type="submit" className="brand-btn" >
             {updatingPassword ? (
               <Loader
                 active={true}
