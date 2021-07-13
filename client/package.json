@@ -39,7 +39,7 @@
       "react-app/jest"
     ]
   },
-  "proxy": "http://localhost:8080/",
+  "proxy": "https://enigmatic-dawn-15291.herokuapp.com/",
   "browserslist": {
     "production": [
       ">0.2%",

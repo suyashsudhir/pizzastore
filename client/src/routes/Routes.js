@@ -11,6 +11,7 @@ import SignUp from '../modules/auth/SignUp';
 import Home from '../modules/Home/Home';
 import Success from '../modules/payments/Success';
 import LandingPage from "../components/LandingPage";
+import Cancel from "../modules/payments/Cancel";
 
 function Routes() {
   
@@ -19,7 +20,8 @@ function Routes() {
         <Switch>
           <Route component={SignIn} path={"/signin"} exact />
             <Route component={Home} path={"/menu"} exact />
-          <Route component={Success} path={"/success"} exact />
+          <AuthenticatedRoute component={Success} path={"/success"} exact />
+            <AuthenticatedRoute component={Cancel} path={"/cancel"} exact />
           <Route component={Cart} path={"/cart"} exact />
           <Route component={LandingPage} path={"/"} exact />
           <AuthenticatedRoute

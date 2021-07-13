@@ -262,7 +262,7 @@ class Home extends Component {
                                    btnAction={this.handleAddToCart}>
                                 <div>
                                     <div className="modal-container">
-                                        <img src={this.state.currentPizza.image}/>
+                                        <img src={this.state.currentPizza.image} alt="pizza"/>
                                         <p>{this.state.currentPizza.description}</p>
                                         <div className="select-container">
                                             <select
@@ -322,7 +322,7 @@ class Home extends Component {
                             <div className="menu-item-card">
                                 {this.state.pizzaList.filter((x) => !x.isSides).map(pizza => (
                                     <div className="pizza-card" onClick={() => this.handleModalShow(pizza)}>
-                                        <img src={pizza.image}/>
+                                        <img src={pizza.image} alt="pizza"/>
 
                                         <div className="pizza-information">
                                             <div className="pizza-name-desc">
@@ -330,7 +330,7 @@ class Home extends Component {
                                                 <h2 className="pizza-name-header">{pizza.name}</h2>
                                                 <p>{pizza.description}</p></div>
                                             <div className="pizza-price">
-                                                <img src={pizza.isVeg ? veg : noveg}/>
+                                                <img src={pizza.isVeg ? veg : noveg} alt="veg-nonveg"/>
                                                 <span>₹{pizza.price}</span>
                                             </div>
 

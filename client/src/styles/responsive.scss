@@ -40,6 +40,11 @@
   .navbar {
     padding: 0;
     width: 100vw;
+    .user-info-nav{
+      .dropdown-menu{
+        right: 1em;
+      }
+    }
   }
   .nav-logo {
     font-size: 36px;
@@ -1505,7 +1510,7 @@
 
   .menu-container{
     padding: 0 !important;
-    width: 100vw !important;
+    width: 100% !important;
     display: flex !important;
     flex-direction: column;
     justify-content:  flex-start!important;

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Avatar from 'react-avatar';
 import {storage, axios} from '../../../../utils';
-import {Loader} from "semantic-ui-react";
 
 function Settings({ user }) {
   const hiddenFileInput = React.useRef(null);

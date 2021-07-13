@@ -17,7 +17,7 @@ function SignUp({history}) {
       })
       .then(({ data }) => {
         window.localStorage.setItem("token", data);
-        history.push("/home");
+       window.location.href = "/menu"
       });
   }
 
@@ -33,7 +33,7 @@ function SignUp({history}) {
         <div className="signin-container">
             <div className="signin-wrapper">
                 <div className="signin-image" style={{height: '100vh'}}>
-                    <img src={signUpImage} alt="signup-image"/>
+                    <img src={signUpImage} alt="signup"/>
                 </div>
                 <div className="signin-form-wrapper">
                     <h1>Join the Pizza Club!</h1>

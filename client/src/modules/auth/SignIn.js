@@ -70,7 +70,7 @@ function SignIn({history}) {
         <div className="signin-container">
             <div className="signin-wrapper">
                 <div className="signin-image">
-                    <img src={signinImage}/>
+                    <img src={signinImage} alt="signin"/>
                 </div>
                 <div className="signin-form-wrapper">
                     <h1>Sign In</h1>

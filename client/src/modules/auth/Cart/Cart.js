@@ -45,20 +45,20 @@ function Cart() {
 
     const handleCheckout = (values) => {
         console.log(values)
-         if( values.email === ''){
+         if( values.email === '' && user.email ===''){
             setError("email", {
                 type: 'required',
                 message: "Please provide an email"
             })
         }
-         else if( values.address === '' ){
+         else if( values.address === '' && user.address === ''){
 
             setError("address", {
                 type: 'required',
                 message: "Please provide an address number"
             })
         }
-       else if ( values.phone === '' ){
+       else if ( values.phone === '' && user.phone === ''){
             setError("phone", {
                 type: 'required',
                 message: "Please provide a phone number"

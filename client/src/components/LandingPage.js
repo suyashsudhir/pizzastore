@@ -14,7 +14,7 @@ const LandingPage = () => {
                 <p className="font-18">Try them and you&apos;ll keep coming back</p>
                 <a className="brand-btn" href={"/menu"}>Menu</a>
             </div>
-            <img src={heroImage}/>
+            <img src={heroImage} alt="hero"/>
         </div>
             </>
     );

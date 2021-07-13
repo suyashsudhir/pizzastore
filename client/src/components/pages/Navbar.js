@@ -24,11 +24,12 @@ function Navbar() {
 
             })
             .catch((err) => setisAuthenticated(false));
-    }, [darkmode.isActivated()]);
+    }, []);
 
     const handleLogout = () => {
-        axios.get("http://localhost:8080/logout").then(data => {
+        axios.get("/logout").then(data => {
             window.localStorage.removeItem('token');
+            window.localStorage.removeItem('cart');
             window.location.href = "/";
         });
     }
