@@ -6,8 +6,8 @@ import {useForm} from "react-hook-form";
 import _ from 'lodash';
 
 function Cart() {
-    let quantityArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-    const {handleSubmit, register} = useForm();
+
+    const {handleSubmit,setError, register, formState: {errors}} = useForm();
     const [cartEmpty, setCartEmpty] = useState(
         window.localStorage.getItem("cart") ? false : true
     );
@@ -21,7 +21,7 @@ function Cart() {
     })
 
     useEffect(() => {
-        axios.get("http://localhost:8080/auth/checkAuth").then(({data}) => {
+        axios.get("/auth/checkAuth").then(({data}) => {
             console.log(data)
             setuser(data.information);
         }).catch(e => {
@@ -44,13 +44,34 @@ function Cart() {
     }, [cartUpdated, cart, cartEmpty]);
 
     const handleCheckout = (values) => {
+        console.log(values)
+         if( values.email === ''){
+            setError("email", {
+                type: 'required',
+                message: "Please provide an email"
+            })
+        }
+         else if( values.address === '' ){
+
+            setError("address", {
+                type: 'required',
+                message: "Please provide an address number"
+            })
+        }
+       else if ( values.phone === '' ){
+            setError("phone", {
+                type: 'required',
+                message: "Please provide a phone number"
+            })
+        }
+        else {
 
         const body = {
             total: finalPrice.total,
-            email: values.email,
-            address: values.address,
+            email: values.email ? values.email : user.email,
+            address: values.address ? values.address : user.address,
             pizzaList: cart.items,
-            phone: values.phone
+            phone: values.phone ? values.phone : user.phone
         };
 
         axios
@@ -69,13 +90,17 @@ function Cart() {
         };
 
         window.localStorage.setItem("cart", JSON.stringify(cartInfo));
+        }
+
     };
+    //update current cart
     const updateCart = (item) => {
         if (cart.items.length <= 1) {
             window.localStorage.removeItem('cart');
             setCartEmpty(true)
         } else {
-            let currentItems = _.cloneDeep(cart.items).filter(x => ((item.id !== x.id) && (item.crust !== x.crust) && (item.size !== x.size)));
+            let currentItems = _.cloneDeep(cart.items);
+                    const removedItems = _.remove(currentItems,x => ((item.id === x.id) && (item.crust === x.crust) && (item.size === x.size)));
 
             let updatedCart = {
                 ...cart,
@@ -91,7 +116,7 @@ function Cart() {
         <>
 
             <Navbar active="Cart" showSearch={false}/>
-            {!cartEmpty && (
+            {(!cartEmpty && cart.items.length > 0) && (
                 <div className="cart-container">
                     <div className={"cart-form-container"}>
                         <h1>Payment & Shipping Information</h1>
@@ -104,6 +129,9 @@ function Cart() {
                                     {...register("email")}
                                     defaultValue={user.email}
                                 />
+                                {errors.email && (
+                                    <div className="text-red">{errors.email.message}</div>
+                                )}
 
 
                                 <input
@@ -112,6 +140,9 @@ function Cart() {
                                     {...register("address")}
                                     defaultValue={user.address}
                                 />
+                                {errors.address && (
+                                    <div className="text-red">{errors.address.message}</div>
+                                )}
 
 
                                 <input
@@ -120,6 +151,10 @@ function Cart() {
                                     {...register("phone")}
                                     defaultValue={user.phone}
                                 />
+
+                                {errors.phone && (
+                                    <div className="text-red">{errors.phone.message}</div>
+                                )}
 
                                 <div className="price-info">
                                     <div
@@ -166,7 +201,7 @@ function Cart() {
                     </div>
                     <div className="cart-item-container">
                         <h1>Cart Summary</h1>
-                        {!cartEmpty &&
+                        {(!cartEmpty &&  cart.items.length >= 0)&&
                         cart.items.map((item) => (
                             <div className="cart-item">
                                 <div className="item-image">
@@ -187,7 +222,9 @@ function Cart() {
                                     </div>
                                 </div>
                                 <div className="item-price">
-                                    <p className="font-18">₹{item.price}</p>
+                                    <p className="font-18">
+                                        <strong>₹{item.price}</strong>
+                                    </p>
                                     <p className="font-18">
                                         <strong>Quantity: </strong>{item.quantity}
                                     </p>
@@ -204,7 +241,7 @@ function Cart() {
                     className="empty-cart-container"
 
                 >
-                    <div className="d-flex align-items-center justify-content-center h-100 flex-column">
+                    <div className="">
                         <p className="font-36">
                             <strong>There's nothing in your cart</strong>
                         </p>

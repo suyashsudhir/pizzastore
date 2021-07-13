@@ -43,15 +43,25 @@ function SignIn({history}) {
                 rememberMe: rememberMe,
             })
             .then(({data}) => {
+                console.log(data)
                 setSigningIn(false)
-                console.log(data);
-                window.localStorage.setItem("token", data);
-                history.push("/");
+
+                    window.localStorage.setItem("token", data);
+                   window.location.href = "/menu";
+
             })
             .catch((e) => {
-                setError("password", {
-                    type: "validate", message: "Your Password is incorrect"
-                })
+
+                if (e.response.status === 403){
+                    setError("username", {
+                        type: "validate", message: "We couldn't find this email!"
+                    })
+                }
+                else {
+                    setError("password", {
+                        type: "validate", message: "Your Password is incorrect"
+                    })
+                }
                 setSigningIn(false);
             });
     };
@@ -75,7 +85,7 @@ function SignIn({history}) {
                                         className={`mb-3 ${
                                             errors.username ? "brand-input-error" : "brand-input"
                                         }`}
-                                        type="text"
+                                        type="email"
                                         {...register("username")}
 
                                     />

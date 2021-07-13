@@ -1,4 +1,4 @@
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media only screen and (min-width: 320px) and (max-width: 768px) {
   .landing-page-container {
 
     display: flex !important;
@@ -402,6 +402,1144 @@
   }
 
 
+
+
+}
+
+@media only screen and (min-width: 769px) and (max-width: 960px){
+
+  .landing-page-container {
+
+    width: 100vw;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+
+    .hero-text {
+      order: 2;
+      margin: 0;
+
+      h1 {
+        margin-top: 1em;
+        font-size: 36px !important;
+      }
+
+      p {
+        font-size: 14px !important;
+
+      }
+
+      a.brand-btn {
+
+
+        text-align: center !important;
+        font-size: 14px !important;
+        padding: 1em;
+      }
+    }
+
+    img {
+      order: 1;
+      margin-top: 5em;
+      margin-left: 1em;
+      width: 80%;
+    }
+  }
+  .navbar{
+    width: 100vw !important;
+  }
+
+  .menu-container{
+    padding: 0 !important;
+    width: 100vw !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: center !important;
+
+    .menu-item-card {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      align-items: center !important;
+      justify-content: center !important;
+
+      .pizza-card {
+        margin: 1em;
+        width: 350px;
+
+      }
+    }
+    .search-box-home {
+      padding: 0 !important;
+      margin: 1em 2em;
+
+
+      float: none !important;
+      width: 100% !important;
+
+      .brand-input {
+
+        align-self: center;
+        margin: 0 0 0 1.8em!important;
+        width: 100% !important;
+      }
+      img{
+
+        right: 2em !important;
+      }
+    }
+  }
+
+  .account-component-container{
+
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    .brand-select{
+      display: none !important;
+    }
+
+    width: 100vw;
+    .brand-select{
+      display: block;
+      margin: 1em auto;
+    }
+    .sidebar-container{
+      width: 200px;
+      height: 100vh;
+    }
+    h1{
+      text-align: center;
+    }
+
+    .order-item-container{
+      width: 100% !important;
+      .order-card{
+        h2{
+
+          font-size: 18px !important;
+        }
+        p{
+          margin: 1em 0;
+
+        }
+       width: 400px;
+        display: flex !important;
+
+        flex-direction: column;
+        justify-content: space-between;
+        height: 300px !important;
+        margin-bottom: 1em;
+        .brand-btn{
+          width: 80%;
+        }
+
+
+      }
+    }
+
+    .security-container{
+      width: calc(90vw - 200px) !important;
+      display: flex !important;
+      justify-content: center;
+      align-items: baseline;
+      h2{
+        margin: 1em auto;
+        text-align: center !important;
+      }
+      form{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 1em;
+        width: 100%;
+        .brand-input{
+          width: 100%;
+
+        }
+        .brand-btn{
+          box-sizing: border-box !important;
+          padding: 1em;
+          width: 100%;
+        }
+      }
+    }
+
+    .settings-container{
+      width: calc(100vw - 200px);
+      display: flex !important;
+      flex-direction: column;
+      .profile-picture{
+        width: 100px !important;
+        height: 100px !important;
+      }
+      .settings-form-container{
+        margin: 0 !important;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center !important;
+        input{
+          box-sizing: border-box;
+          margin: 0.5em 0;
+          width: 80%;
+
+        }
+        .brand-btn{
+
+          width: 80%;
+        }
+      }
+    }
+
+  }
+
+  .cart-container {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+
+    .cart-item-container {
+
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .cart-form-container {
+      width: 100%;
+      order: 2;
+
+      h1 {
+        text-align: center;
+        margin: 1em 1em 0 1em;
+
+      }
+
+
+      .form-container {
+        display: flex !important;
+
+        align-items: center !important;
+        padding: 1em 1.5em;
+
+        .brand-btn {
+          padding: 0.7em;
+        }
+
+        input {
+          margin: 0.5em 0;
+        }
+
+        .price-info {
+          width: 50%;
+          margin-left: 50px;
+          display: flex !important;
+          padding: 0 1.5em;
+          align-items: center !important;
+          justify-content: center !important;
+
+          .price-info-row {
+            align-items: center;
+            justify-content: center;
+            margin: 0.5em 0 0.5em 0.2em;
+            width: 80%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+      }
+    }
+  }
+  .signin-wrapper{
+    display: flex !important;
+    flex-direction: column !important;
+
+    .signin-image{
+      display: none !important;
+    }
+    .signin-form-wrapper{
+
+      margin: 0 !important;
+      padding: 1em 1em !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1{
+        width: 100% !important;
+      }
+      .signin-card{
+        padding: 0 !important;
+        height: 500px !important;
+        width: 100% !important;
+        h4{
+          font-size: 18px !important;
+        }
+        .brand-btn{
+          padding: .5em;
+        }
+      }
+    }
+
+  }
+
+
+
+
+}
+
+
+@media only screen and (min-width: 961px) and (max-width: 1024px){
+  .landing-page-container {
+
+    width: 100vw;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+
+    .hero-text {
+      order: 2;
+      margin: 0;
+
+      h1 {
+        margin-top: 1em;
+        font-size: 36px !important;
+      }
+
+      p {
+        font-size: 14px !important;
+
+      }
+
+      a.brand-btn {
+
+
+        text-align: center !important;
+        font-size: 14px !important;
+        padding: 1em;
+      }
+    }
+
+    img {
+      order: 1;
+      margin-top: 5em;
+      margin-left: 1em;
+      width: 80%;
+    }
+  }
+
+  .menu-container{
+    padding: 0 !important;
+    width: 100vw !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: center !important;
+
+    .menu-item-card {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      align-items: center !important;
+      justify-content: center !important;
+
+      .pizza-card {
+        margin: 0.5em;
+        width: 300px;
+
+      }
+    }
+    .search-box-home {
+      padding: 0 !important;
+      margin: 1em 1em;
+
+
+      float: none !important;
+      width: 100% !important;
+
+      .brand-input {
+
+        align-self: center;
+        margin: 0 0 0 1.8em!important;
+        width: 100% !important;
+      }
+      img{
+
+        right: 2em !important;
+      }
+    }
+  }
+
+  .account-component-container{
+
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    .brand-select{
+      display: none !important;
+    }
+
+    width: 100vw;
+    .brand-select{
+      display: block;
+      margin: 1em auto;
+    }
+    .sidebar-container{
+      width: 200px;
+      height: 100vh;
+    }
+    h1{
+      text-align: center;
+    }
+
+    .order-item-container{
+      width: 100% !important;
+      .order-card{
+        h2{
+
+          font-size: 18px !important;
+        }
+        p{
+          margin: 1em 0;
+
+        }
+        width: 600px;
+        display: grid !important;
+
+
+
+        height: 200px !important;
+        margin-bottom: 1em;
+        .brand-btn{
+          width: 80%;
+        }
+
+
+      }
+    }
+
+    .security-container{
+      width: calc(90vw - 200px) !important;
+      display: flex !important;
+      justify-content: center;
+      align-items: baseline;
+      h2{
+        margin: 1em auto;
+        text-align: center !important;
+      }
+      form{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 1em;
+        width: 100%;
+        .brand-input{
+          width: 100%;
+
+        }
+        .brand-btn{
+          box-sizing: border-box !important;
+          padding: 1em;
+          width: 100%;
+        }
+      }
+    }
+
+    .settings-container{
+      width: calc(100vw - 200px);
+
+      .profile-picture{
+        width: 150px !important;
+        height: 150px !important;
+      }
+      .settings-form-container{
+        margin: 0 !important;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        input{
+
+          margin: 0.5em 0;
+          width: 90%;
+
+        }
+        .brand-btn{
+          box-sizing: border-box !important;
+
+          margin: 1em 0 !important;
+        }
+      }
+    }
+
+  }
+
+  .cart-container {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+
+    .cart-item-container {
+
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .cart-form-container {
+      width: 100%;
+      order: 2;
+
+      h1 {
+        text-align: center;
+        margin: 1em 1em 0 1em;
+
+      }
+
+
+      .form-container {
+        display: flex !important;
+
+        align-items: center !important;
+        padding: 1em 1.5em;
+
+        .brand-btn {
+          padding: 0.7em;
+        }
+
+        input {
+          margin: 0.5em 0;
+        }
+
+        .price-info {
+          width: 50%;
+          margin-left: 50px;
+          display: flex !important;
+          padding: 0 1.5em;
+          align-items: center !important;
+          justify-content: center !important;
+
+          .price-info-row {
+            align-items: center;
+            justify-content: center;
+            margin: 0.5em 0 0.5em 0.2em;
+            width: 80%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+      }
+    }
+  }
+
+  .signin-wrapper{
+
+
+
+    .signin-form-wrapper{
+
+      margin: 0 !important;
+      padding: 1em 1em !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1{
+        width: 100% !important;
+      }
+      .signin-card{
+        padding: 0 !important;
+        height: 500px !important;
+        width: 100% !important;
+        h4{
+          font-size: 18px !important;
+        }
+        .brand-btn{
+          padding: .5em;
+        }
+      }
+    }
+
+  }
+
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1200px){
+  .landing-page-container {
+
+    width: 100vw;
+    display: grid !important;
+   grid-template-columns: 2fr 3fr;
+
+
+    .hero-text {
+
+      margin: 0;
+
+      h1 {
+        margin-top: 1em;
+        font-size: 36px !important;
+      }
+
+      p {
+        font-size: 14px !important;
+
+      }
+
+      a.brand-btn {
+
+
+        text-align: center !important;
+        font-size: 14px !important;
+        padding: 1em;
+      }
+    }
+
+    img {
+
+      margin-top: 5em;
+      margin-left: 1em;
+      margin-right: 1em;
+      width: 95%;
+    }
+  }
+
+  .menu-container{
+    padding: 0 !important;
+    width: 100vw !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: center !important;
+
+    .menu-item-card {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      align-items: center !important;
+      justify-content: center !important;
+
+      .pizza-card {
+        margin: 1em 1em;
+        width: 350px;
+
+      }
+    }
+    .search-box-home {
+      padding: 0 !important;
+      margin: 1em 2em;
+
+
+      float: none !important;
+      width: 100% !important;
+
+      .brand-input {
+
+        align-self: center;
+        margin: 0 0 0 1.8em!important;
+        width: 100% !important;
+      }
+      img{
+
+        right: 2em !important;
+      }
+    }
+  }
+
+  .account-component-container{
+
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    .brand-select{
+      display: none !important;
+    }
+
+    width: 100vw;
+    .brand-select{
+      display: block;
+      margin: 1em auto;
+    }
+    .sidebar-container{
+      width: 300px;
+      height: 100vh;
+    }
+    h1{
+      text-align: center;
+    }
+
+    .order-item-container{
+      width: 100% !important;
+      .order-card{
+        h2{
+
+          font-size: 18px !important;
+        }
+        p{
+          margin: 1em 0;
+
+        }
+        width: 700px;
+        display: grid !important;
+
+
+
+        height: 200px !important;
+        margin-bottom: 1em;
+        .brand-btn{
+          width: 80%;
+        }
+
+
+      }
+    }
+
+    .security-container{
+      width: calc(90vw - 200px) !important;
+      display: flex !important;
+      justify-content: center;
+      align-items: baseline;
+      h2{
+        margin: 1em auto;
+        text-align: center !important;
+      }
+      form{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 1em;
+        width: 100%;
+        .brand-input{
+          width: 100%;
+
+        }
+        .brand-btn{
+          box-sizing: border-box !important;
+          padding: 1em;
+          width: 100%;
+        }
+      }
+    }
+
+    .settings-container{
+      width: calc(100vw - 200px);
+
+      .profile-picture{
+        width: 150px !important;
+        height: 150px !important;
+      }
+      .settings-form-container{
+        margin: 0 !important;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        input{
+
+          margin: 0.5em 0;
+          width: 90%;
+
+        }
+        .brand-btn{
+          box-sizing: border-box !important;
+
+          margin: 1em 0 !important;
+        }
+      }
+    }
+
+  }
+
+  .cart-container {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+
+    .cart-item-container {
+
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .cart-form-container {
+      width: 100%;
+      order: 2;
+
+      h1 {
+        text-align: center;
+        margin: 1em 1em 0 1em;
+
+      }
+
+
+      .form-container {
+        display: flex !important;
+
+        align-items: center !important;
+        padding: 1em 1.5em;
+
+        .brand-btn {
+          padding: 0.7em;
+        }
+
+        input {
+          margin: 0.5em 0;
+        }
+
+        .price-info {
+          width: 50%;
+          margin-left: 50px;
+          display: flex !important;
+          padding: 0 1.5em;
+          align-items: center !important;
+          justify-content: center !important;
+
+          .price-info-row {
+            align-items: center;
+            justify-content: center;
+            margin: 0.5em 0 0.5em 0.2em;
+            width: 80%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+      }
+    }
+  }
+  .signin-wrapper{
+
+
+
+    .signin-form-wrapper{
+
+      margin: 0 !important;
+      padding: 1em 1em !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1{
+        width: 100% !important;
+      }
+      .signin-card{
+        padding: 0 !important;
+        height: 500px !important;
+        width: 100% !important;
+        h4{
+          font-size: 18px !important;
+        }
+        .brand-btn{
+          padding: .5em;
+        }
+      }
+    }
+
+  }
+}
+
+
+@media only screen and (min-width: 1201px) and (max-width: 1600px){
+  .landing-page-container {
+
+    width: 100vw;
+    display: grid !important;
+    grid-template-columns: 2fr 3fr;
+
+
+    .hero-text {
+
+      margin: 0;
+
+      h1 {
+        margin-top: 1em;
+        font-size: 48px !important;
+      }
+
+      p {
+        font-size: 18px !important;
+
+      }
+
+      a.brand-btn {
+        text-align: center !important;
+        font-size: 18px !important;
+        padding: 1em;
+        width: 100px !important;
+      }
+    }
+
+    img {
+
+      margin-top: 5em;
+      margin-left: 1em;
+      margin-right: 1em;
+      width: 95%;
+    }
+  }
+
+  .menu-container{
+    padding: 0 !important;
+    width: 100vw !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: center !important;
+
+    .menu-item-card {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      align-items: center !important;
+      justify-content: center !important;
+
+      .pizza-card {
+        margin: 1em 1em;
+        width: 350px;
+
+      }
+    }
+    .search-box-home {
+      padding: 0 !important;
+      margin: 1em 2em;
+
+
+      float: right !important;
+
+      .brand-input {
+
+        align-self: center;
+        margin: 0 0 0 1.8em!important;
+        width: 100% !important;
+      }
+      img{
+
+        right: 2em !important;
+      }
+    }
+  }
+
+  .account-component-container{
+
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    .brand-select{
+      display: none !important;
+    }
+
+    width: 100vw;
+    .brand-select{
+      display: block;
+      margin: 1em auto;
+    }
+    .sidebar-container{
+      width: 300px;
+      height: 100vh;
+    }
+    h1{
+      text-align: start;
+    }
+
+    .order-item-container{
+      width: 100% !important;
+      .order-card{
+
+        p{
+          margin: 1em 0;
+
+        }
+        width: 700px;
+        display: grid !important;
+
+
+
+        height: 200px !important;
+        margin-bottom: 1em;
+        .brand-btn{
+          width: 80%;
+        }
+
+
+      }
+    }
+
+    .security-container{
+      width: calc(90vw - 200px) !important;
+      display: flex !important;
+      justify-content: center;
+      align-items: baseline;
+      h2{
+        margin: 1em auto;
+        text-align: center !important;
+      }
+      form{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 1em;
+        width: 100%;
+        .brand-input{
+          width: 100%;
+
+        }
+        .brand-btn{
+          box-sizing: border-box !important;
+          padding: 1em;
+          width: 100%;
+        }
+      }
+    }
+
+    .settings-container{
+      width: calc(100vw - 200px);
+
+      .profile-picture{
+        width: 150px !important;
+        height: 150px !important;
+      }
+      .settings-form-container{
+        margin: 0 !important;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        input{
+
+          margin: 0.5em 0;
+          width: 90%;
+
+        }
+        .brand-btn{
+          box-sizing: border-box !important;
+
+          margin: 1em 0 !important;
+        }
+      }
+    }
+
+  }
+
+  .cart-container {
+    .cart-item-container{
+      margin-left: 3em;
+      .cart-item{
+        width: 500px;
+      }
+    }
+
+
+
+    .cart-form-container {
+      width: 100%;
+
+
+      h1 {
+        text-align: center;
+        margin: 1em 1em 0 1em;
+
+      }
+
+
+      .form-container {
+        display: flex !important;
+
+        align-items: center !important;
+        padding: 1em 1.5em;
+
+        .brand-btn {
+          width: 90%;
+          padding: 0.7em;
+        }
+
+        input {
+          margin: 0.5em 0;
+          width: 90%;
+        }
+
+        .price-info {
+          width: 50%;
+          margin-left: 50px;
+          display: flex !important;
+          padding: 0 1.5em;
+          align-items: center !important;
+          justify-content: center !important;
+
+          .price-info-row {
+            align-items: center;
+            justify-content: center;
+            margin: 0.5em 0 0.5em 0.2em;
+            width: 80%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1601px) and (max-width: 2560px){
+  .landing-page-container {
+
+    width: 100vw;
+    display: grid !important;
+    grid-template-columns: 2fr 3fr;
+
+
+    .hero-text {
+
+      margin: 0;
+
+      h1 {
+        margin-top: 1em;
+        font-size: 48px !important;
+      }
+
+      p {
+        font-size: 18px !important;
+
+      }
+
+      a.brand-btn {
+        text-align: center !important;
+        font-size: 18px !important;
+        padding: 1em;
+        width: 100px !important;
+      }
+    }
+
+    img {
+
+      margin-top: 4em;
+      margin-left: 1em;
+      margin-right: 1em;
+      width: 95%;
+    }
+  }
+
+  .menu-container{
+    padding: 0 !important;
+    width: 100vw !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content:  flex-start!important;
+    align-items: center !important;
+
+    .menu-item-card {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      align-items: center !important;
+      justify-content: center !important;
+
+      .pizza-card {
+        margin: 1em 1em;
+        width: 380px;
+
+      }
+    }
+    .search-box-home {
+      padding: 0 !important;
+      margin: 2em 0;
+      float: right !important;
+
+
+      .brand-input {
+        align-self: center;
+        margin: 0 0 0 1.8em!important;
+        width: 100% !important;
+      }
+      img{
+
+        right: 2em !important;
+      }
+    }
+  }
 
 
 }

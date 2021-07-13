@@ -3,6 +3,7 @@ import React from 'react';
 import {useForm} from 'react-hook-form';
 import {axios} from '../../utils';
 import { withRouter } from 'react-router-dom';
+import signUpImage from '../../assets/img/signupImage.jpg'
 
 
 function SignUp({history}) {
@@ -29,57 +30,84 @@ function SignUp({history}) {
     } = useForm();
     
     return (
-      <div className="container-fluid vh-100" style={{ height: "100vh" }}>
-        <div className="d-flex justify-content-center align-items-center vh-100 flex-column">
-          <h1>Join the pizza club!</h1>
-          <div hoverable style={{ width: 500, height: 600 }}>
-            <div className="d-flex justify-content-center align-items-center flex-column">
-              <h4>Welcome 🍕 lover! </h4>
-              <form
-                className="d-flex justify-content-center align-items-center flex-column mt-5"
-                onSubmit={handleSubmit(handleSignUpSubmit)}
-              >
-                <input
-                  style={{ width: "170%", height: "50px" }}
-                  className="mb-4 brand-input"
-                  type="text"
-                  placeholder="Enter your name"
-                  {...register("name")}
-                />
-                <input
-                  className="mb-4 brand-input"
-                  style={{ width: "170%", height: "50px" }}
-                  type="email"
-                  placeholder="Enter your email"
-                  {...register("email")}
-                />
-                <input
-                  className="mb-4 brand-input"
-                  style={{ width: "170%", height: "50px" }}
-                  type="password"
-                  placeholder="Enter a password"
-                  {...register("password")}
-                />
-                <input
-                  className="mb-4 brand-input"
-                  style={{ width: "170%", height: "50px" }}
-                  type="password"
-                  placeholder="Confirm Password"
-                  {...register("confirmPassword")}
-                />
-                <button
-                    className={"brand-btn"}
-                  style={{ width: "170%", height: "50px" }}
-                  type="submit"
+        <div className="signin-container">
+            <div className="signin-wrapper">
+                <div className="signin-image" style={{height: '100vh'}}>
+                    <img src={signUpImage} alt="signup-image"/>
+                </div>
+                <div className="signin-form-wrapper">
+                    <h1>Join the Pizza Club!</h1>
+                    <div className="signin-card">
+                        <h4>Welcome 🍕 lover! </h4>
+                        <form
 
-                >
-                  Sign Up
-                </button>
-              </form>
+                            onSubmit={handleSubmit(handleSignUpSubmit)}
+                        >
+                            <div className="signin-form">
+
+                            <div className="signin-field">
+                            <input
+
+                                className="mb-4 brand-input"
+                                type="text"
+                                placeholder="Enter your name"
+                                {...register("name")}
+                            />
+
+                            </div>
+                                <div className="signin-field">
+                            <input
+                                className="mb-4 brand-input"
+
+                                type="email"
+                                placeholder="Enter your email"
+                                {...register("email")}
+                            />
+                                </div>
+                                <div className="signin-field">
+                            <input
+                                className="mb-4 brand-input"
+
+                                type="password"
+                                placeholder="Enter a password"
+                                {...register("password")}
+                            />
+                                </div>
+                                <div className="signin-field">
+                            <input
+                                className="mb-4 brand-input"
+
+                                type="password"
+                                placeholder="Confirm Password"
+                                {...register("confirmPassword")}
+                            />
+                            </div>
+                            <div className="signin-field">
+                            <button
+                                className={"brand-btn"}
+
+                                type="submit"
+
+                            >
+                                Sign Up
+                            </button>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+
+
+                {/* <button
+            onClick={handleGoogleSignIn}
+            className="brand-btn"
+          >
+            Sign In with Google
+          </button> */}
             </div>
-          </div>
         </div>
-      </div>
     );
 }
 

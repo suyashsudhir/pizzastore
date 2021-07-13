@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -44,24 +45,30 @@ public class JWTController {
         String password = jwtRequest.getPassword();
         final UserDetails userDetails = userDetailsService.loadUserByUsername(jwtRequest.getUsername());
 
-        System.out.println(userDetails);
+        Optional<UserCredentials> credentials = userCredentialsRepository.findUserCredentialsByEmail(jwtRequest.getUsername());
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+        if ((credentials.isPresent())){
+            if (encoder.matches(password, userDetails.getPassword())) {
+                long exp;
+                if (jwtRequest.getRememberMe()) {
+                    exp = 1296000 * 1000;
 
-
-        if (encoder.matches(password, userDetails.getPassword())) {
-            long exp;
-            if (jwtRequest.getRememberMe()) {
-                exp = 1296000 * 1000;
-
+                } else {
+                    exp = 3600 * 1000;
+                }
+                final String token = tokenUtil.generateToken(userDetails, exp);
+                return ResponseEntity.ok(token);
             } else {
-                exp = 3600 * 1000;
-            }
-            final String token = tokenUtil.generateToken(userDetails, exp);
-            return ResponseEntity.ok(token);
-        } else {
 
-            return ResponseEntity.status(401).body("invalid credentials");
+                return ResponseEntity.status(401).body("invalid credentials");
+            }
         }
+        else {
+            return ResponseEntity.status(403).body("user not found");
+        }
+
+
+
 
 
     }

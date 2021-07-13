@@ -115,7 +115,6 @@ class Home extends Component {
         }
 
 
-
         this.setState({
             currentPizzaSizeValue: event.target.value,
             currentPizzaPriceSize: currentPrice,
@@ -124,12 +123,11 @@ class Home extends Component {
     };
 
     handleCrustChange = (event, item) => {
-        let currentPrice = parseInt(item.price);
+        let currentPrice = 0
 
         currentPrice =
             currentPrice +
             crustArray.filter((x) => x.value === event.target.value)[0].price;
-
 
 
         this.setState({
@@ -178,20 +176,38 @@ class Home extends Component {
 
         } else {
             const q = JSON.parse(window.localStorage.getItem('cart'));
-            console.log(!!q.items.find(x => (x.id === this.state.currentPizza.id && x.crust === this.state.currentPizzaCrustValue && x.size === this.state.currentPizzaSizeValue)))
-            let nextPizza = {
-                ...this.state.currentPizza,
-                price: ((this.state.currentPizzaPriceCrust + this.state.currentPizzaPriceSize) === 0 ?
-                    parseInt(this.state.currentPizza.price) :
-                    (this.state.currentPizzaPriceCrust + this.state.currentPizzaPriceSize)) * this.state.quantity,
-                size: this.state.currentPizzaSizeValue,
-                crust: this.state.currentPizzaCrustValue,
-                quantity: this.state.quantity
-            };
-            const prevCart = JSON.parse(window.localStorage.getItem("cart"));
-            prevCart.items.push(nextPizza);
+            const index = _.findIndex(q.items,x => (x.id === this.state.currentPizza.id && x.crust === this.state.currentPizzaCrustValue && x.size === this.state.currentPizzaSizeValue))
+            console.log(index)
 
-            cart = prevCart;
+            if (index>=0) {
+                const existingItem = _.remove(q.items, x => (x.id === this.state.currentPizza.id && x.crust === this.state.currentPizzaCrustValue && x.size === this.state.currentPizzaSizeValue))
+              let updatedItem =  _.update(existingItem[0], 'quantity', value => parseInt(value) + parseInt(this.state.quantity));
+                updatedItem = _.update(existingItem[0], 'price', value => value + (((this.state.currentPizzaPriceCrust + this.state.currentPizzaPriceSize) === 0 ?
+                    parseInt(this.state.currentPizza.price) :
+                    (this.state.currentPizzaPriceCrust + this.state.currentPizzaPriceSize)) * this.state.quantity));
+                q.items.splice(index, 1, updatedItem);
+                console.log(q.items)
+                cart = q;
+
+
+            }
+        else {
+
+                let nextPizza = {
+                    ...this.state.currentPizza,
+                    price: ((this.state.currentPizzaPriceCrust + this.state.currentPizzaPriceSize) === 0 ?
+                        parseInt(this.state.currentPizza.price) :
+                        (this.state.currentPizzaPriceCrust + this.state.currentPizzaPriceSize)) * this.state.quantity,
+                    size: this.state.currentPizzaSizeValue,
+                    crust: this.state.currentPizzaCrustValue,
+                    quantity: this.state.quantity
+                };
+                const prevCart = JSON.parse(window.localStorage.getItem("cart"));
+                prevCart.items.push(nextPizza);
+                cart = prevCart;
+            }
+
+
         }
 
         window.localStorage.setItem('cart', JSON.stringify(cart));

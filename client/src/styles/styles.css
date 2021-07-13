@@ -273,6 +273,10 @@ a {
   height: 30px;
   fill: black;
 }
+.navbar a.brand-btn {
+  font-size: 18px;
+  width: 100px !important;
+}
 .navbar .user-info-nav {
   right: 0;
   margin: 0.7em 4em 0 0;
@@ -485,6 +489,7 @@ a {
   display: flex;
   align-items: center;
   margin: 1em 1.5em;
+  flex-direction: column;
 }
 .signin-container .signin-wrapper .signin-form-wrapper .signin-card .signin-form .signin-field .brand-btn {
   margin: 0 !important;
@@ -633,6 +638,10 @@ a {
   justify-content: center;
   align-items: center;
   height: calc(100vh - 102px);
+}
+.empty-cart-container a {
+  text-decoration: none;
+  color: #007fff;
 }
 .empty-cart-container .font-36 {
   margin-bottom: 0.2em;
@@ -785,6 +794,10 @@ body.darkmode--activated {
 }
 .darkmode--activated .navbar .cart-icon {
   fill: white;
+}
+.darkmode--activated .navbar a.brand-btn {
+  font-size: 18px;
+  width: 100px !important;
 }
 .darkmode--activated .sidebar-container {
   border-color: #282c34;

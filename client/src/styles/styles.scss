@@ -296,6 +296,11 @@ a {
     margin: 1em 1em 0 auto;
   }
 
+  a.brand-btn{
+    font-size: 18px;
+    width: 100px !important;
+  }
+
   .user-info-nav {
     right: 0;
     margin: 0.7em 4em 0 0;
@@ -558,6 +563,7 @@ a {
             display: flex;
             align-items: center;
             margin: 1em 1.5em;
+            flex-direction: column;
 
             .brand-btn{
               margin: 0 !important;
@@ -757,6 +763,10 @@ a {
   justify-content: center;
   align-items: center;
   height: calc(100vh - 102px);
+  a{
+    text-decoration: none;
+    color: $brandColor;
+  }
 
   .font-36 {
     margin-bottom: 0.2em;
@@ -952,6 +962,10 @@ body.darkmode--activated {
       fill: white;
 
 
+    }
+    a.brand-btn{
+      font-size: 18px;
+      width: 100px !important;
     }
   }
 
