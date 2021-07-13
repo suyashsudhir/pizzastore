@@ -462,6 +462,7 @@ a {
     }
   }
 
+
   .menu-item-card {
     margin: 4em auto;
     display: grid;
@@ -512,7 +513,13 @@ a {
   }
 }
 
-
+.no-pizza-found{
+  flex-direction: column;
+  display: flex !important;
+  width: 100%;
+  justify-content: center !important;
+  align-items: center !important;
+}
 .modal-window {
   & > div {
     .modal-container {

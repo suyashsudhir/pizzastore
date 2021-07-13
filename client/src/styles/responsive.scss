@@ -36,7 +36,19 @@
       width: 100%;
     }
   }
-
+  .no-pizza-found{
+    margin: 0 !important;
+    padding: 0;
+    img{
+      margin: 1em 0 !important;
+      height: 80%;
+      width: 80%;
+    }
+    h1{
+      font-size: 1.5em;
+      margin: 0 .5em;
+    }
+  }
   .navbar {
     padding: 0;
     width: 100vw;

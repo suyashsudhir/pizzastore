@@ -456,6 +456,14 @@ a {
   width: 1em;
 }
 
+.no-pizza-found {
+  flex-direction: column;
+  display: flex !important;
+  width: 100%;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
 .modal-window > div .modal-container {
   width: 100%;
   margin: 2em 0;

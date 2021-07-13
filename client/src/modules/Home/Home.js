@@ -10,6 +10,7 @@ import veg from '../../assets/img/veg.png';
 import Modal from "../../components/Modal/Modal";
 import Skeleton from "react-loading-skeleton";
 import searchIcon from '../../assets/img/search_brand.svg'
+import notFound from '../../assets/img/no-pizzas.svg'
 
 const quantityArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const crustArray = [
@@ -219,6 +220,9 @@ class Home extends Component {
         return (
             <>
                 <Navbar handleSearch={(e) => this.handleSearch(e.target.value)}/>
+                {this.state.pizzaList === 0 && !this.state.dataLoading &&(
+                    <div>Not Found</div>
+                )}
 
 
                 {this.state.dataLoading ? (
@@ -320,7 +324,7 @@ class Home extends Component {
                                 <img alt="search" src={searchIcon}/>
                             </div>
                             <div className="menu-item-card">
-                                {this.state.pizzaList.filter((x) => !x.isSides).map(pizza => (
+                                {this.state.pizzaList.filter((x) => !x.isSides).length > 0 && this.state.pizzaList.filter((x) => !x.isSides).map(pizza => (
                                     <div className="pizza-card" onClick={() => this.handleModalShow(pizza)}>
                                         <img src={pizza.image} alt="pizza"/>
 
@@ -337,10 +341,18 @@ class Home extends Component {
                                         </div>
                                     </div>
                                 ))}
+
                             </div>
 
                         </div>
                     )}
+
+                {this.state.pizzaList.filter((x) => !x.isSides).length === 0 &&
+                <div className="no-pizza-found">
+                    <img alt={"no-result"} src={notFound} />
+                    <h1>We&apos;re working hard to add that pizza to our menu!</h1>
+                </div>
+                }
             </>
         );
     }
