@@ -13,7 +13,7 @@ function Navbar() {
     const darkmode = new Darkmode();
     useEffect(() => {
         axios
-            .get("http://localhost:8080/auth/checkAuth")
+            .get("/auth/checkAuth")
             .then(({data}) => {
                 if (data.isAuthenticated) {
                     setisAuthenticated(true);
