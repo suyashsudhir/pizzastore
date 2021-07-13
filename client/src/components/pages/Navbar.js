@@ -21,6 +21,7 @@ function Navbar() {
                 } else {
                     setisAuthenticated(false);
                 }
+
             })
             .catch((err) => setisAuthenticated(false));
     }, [darkmode.isActivated()]);
@@ -55,7 +56,7 @@ function Navbar() {
                 </svg>
             </a>
             {isAuthenticated ? <span className="user-info-nav" onClick={() => setIsMenuOPen(!isMenuOpen)}>
-                <Avatar alt={"user-profile-picture"} src={authInfo.profilePicture} round={true} size={50} name={authInfo.fullname}/>
+                <Avatar  alt={"user-profile-picture"} src={authInfo.profilePicture} round={true} size={50} name={authInfo.fullname}/>
                     {isMenuOpen && (
                        <div className="dropdown-menu">
                            <p onClick={() => darkmode.toggle()}>Dark Mode</p>

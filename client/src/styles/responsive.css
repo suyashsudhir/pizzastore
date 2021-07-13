@@ -45,28 +45,60 @@
     padding: 5px 0 0 0;
   }
 
-  .menu-item-card {
+  .modal-window {
+    width: 100vw !important;
+  }
+  .modal-window > div {
+    overflow: auto;
+    width: 80vw !important;
+    height: 80vh !important;
+  }
+  .modal-window > div .select-container {
+    padding: 1em;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .modal-window > div .select-container .brand-select {
+    margin: 1em 0;
+    width: 100%;
+  }
+  .modal-window > div .brand-btn {
+    padding: 1em;
+  }
+  .modal-window > div .brand-btn-danger {
+    padding: 0.7em;
+  }
+
+  .menu-container {
+    padding: 0 !important;
+    width: 100vw !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: center !important;
+  }
+  .menu-container .menu-item-card {
     display: grid !important;
     grid-template-columns: repeat(1, 1fr) !important;
     align-items: center !important;
     justify-content: center !important;
   }
-  .menu-item-card .pizza-card {
+  .menu-container .menu-item-card .pizza-card {
     margin: 1em;
     width: 350px;
   }
-
-  .search-box-home {
+  .menu-container .search-box-home {
     padding: 0 !important;
-    margin-right: 10px !important;
+    margin: 1em 2em;
     float: none !important;
-    width: 100vw !important;
+    width: 100% !important;
   }
-  .search-box-home .brand-input {
-    margin: 0 !important;
-    width: 72% !important;
+  .menu-container .search-box-home .brand-input {
+    align-self: center;
+    margin: 0 0 0 1.8em !important;
+    width: 100% !important;
   }
-  .search-box-home img {
+  .menu-container .search-box-home img {
     right: 2em !important;
   }
 
@@ -196,17 +228,23 @@
     width: 80%;
   }
   .account-component-container .security-container {
-    padding: 1em;
-    width: 100vw;
+    width: 90vw !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: baseline;
   }
   .account-component-container .security-container h2 {
-    text-align: center;
+    margin: 1em auto;
+    text-align: center !important;
   }
   .account-component-container .security-container form {
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 1em;
+    width: 100%;
+  }
+  .account-component-container .security-container form .brand-input {
     width: 100%;
   }
   .account-component-container .security-container form .brand-btn {

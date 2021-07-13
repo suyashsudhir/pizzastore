@@ -13,7 +13,7 @@
   transition: all 0.3s;
 
   & > div {
-    width: 400px;
+
     position: absolute;
     top: 50%;
     left: 50%;
@@ -56,8 +56,8 @@
 
 .modal-window {
   & > div {
-    min-width: 500px;
-    min-height: 500px;
+    width: 500px;
+
     height: fit-content;
     border-radius: 1rem;
     border: 1px solid rgb(0, 127, 255);

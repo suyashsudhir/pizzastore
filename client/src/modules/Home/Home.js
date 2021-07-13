@@ -11,7 +11,7 @@ import Modal from "../../components/Modal/Modal";
 import Skeleton from "react-loading-skeleton";
 import searchIcon from '../../assets/img/search_brand.svg'
 
-const quantityArray = [0,1,2,3,4,5,6,7,8,9,10];
+const quantityArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const crustArray = [
     {
         name: "New Hand Tossed",
@@ -27,7 +27,6 @@ const crustArray = [
     {name: "Fresh Pan", value: "fresh_pan", price: 50},
     {name: "Classic Hand Tossed", value: "classic_hand_tossed", price: 50},
 ];
-
 
 
 class Home extends Component {
@@ -82,39 +81,41 @@ class Home extends Component {
             currentPizza: pizza,
             modalShow: true,
             showOverlay: true,
-            currentPizzaPrice: pizza.price,
+
         });
     };
 
-    handleCheckout = () => {
-        axios.post("/common/create-stripe-checkout").then((data) => {
-            window.location.href = data.data;
-        });
-    };
 
-    handleQtyChange (event, item){
-        this.setState({quantity: event.target.value, currentPizzaPrice: this.state.currentPizzaPrice * event.target.value});
+    handleQtyChange(event, item) {
+        this.setState({
+            quantity: event.target.value,
+            currentPizzaPrice: this.state.currentPizzaPrice * event.target.value
+        });
+        // if (parseInt(item.price) !== this.state.currentPizzaPrice) {
+        //     this.setState({quantity: event.target.value, currentPizzaPrice: parseInt(item.price) * event.target.value});
+        // } else {
+        //     this.setState({
+        //         quantity: event.target.value,
+        //         currentPizzaPrice: this.state.currentPizzaPrice * event.target.value
+        //     });
+        // }
     }
 
     handleSizeChange = (event, item) => {
-        let currentPrice = item.price;
 
-        if (event.target.value === "large") {
-            currentPrice =
-                parseInt(
-                    this.state.currentPizzaPrice !== parseInt(item.price)
-                        ? this.state.currentPizzaPriceCrust
-                        : item.price
-                ) + 100;
-        } else if (event.target.value === "small") {
-            currentPrice =
-                parseInt(
-                    this.state.currentPizzaPrice !== parseInt(item.price)
-                        ? this.state.currentPizzaPriceCrust
-                        : item.price
-                ) - 50;
+        // this.setState({currentPizzaPrice: 0})
+
+        let currentPrice = 0;
+
+        if (event.target.value === 'large') {
+            currentPrice = parseInt(item.price) + 100
         }
-        console.log(currentPrice, this.state.currentPizzaPriceCrust, item.price);
+        if (event.target.value === 'small') {
+            currentPrice = parseInt(item.price) - 50;
+        }
+
+
+
         this.setState({
             currentPizzaSizeValue: event.target.value,
             currentPizzaPriceSize: currentPrice,
@@ -123,15 +124,13 @@ class Home extends Component {
     };
 
     handleCrustChange = (event, item) => {
-        let currentPrice = item.price;
+        let currentPrice = parseInt(item.price);
 
         currentPrice =
-            (this.state.currentPizzaPrice !== parseInt(item.price)
-                ? this.state.currentPizzaPriceSize
-                : item.price) +
+            currentPrice +
             crustArray.filter((x) => x.value === event.target.value)[0].price;
 
-        console.log(currentPrice, this.state.currentPizzaPriceSize, item.price);
+
 
         this.setState({
             currentPizzaCrustValue: event.target.value,
@@ -160,12 +159,15 @@ class Home extends Component {
 
         let cart = {};
         if (!window.localStorage.getItem('cart')) {
+
             cart = {
                 id: uuid(),
                 items: [
                     {
                         ...this.state.currentPizza,
-                        price: this.state.currentPizzaPrice,
+                        price: ((this.state.currentPizzaPriceCrust + this.state.currentPizzaPriceSize) === 0 ?
+                            parseInt(this.state.currentPizza.price) :
+                            (this.state.currentPizzaPriceCrust + this.state.currentPizzaPriceSize)) * this.state.quantity,
                         size: this.state.currentPizzaSizeValue,
                         crust: this.state.currentPizzaCrustValue,
                         quantity: this.state.quantity
@@ -175,9 +177,13 @@ class Home extends Component {
 
 
         } else {
+            const q = JSON.parse(window.localStorage.getItem('cart'));
+            console.log(!!q.items.find(x => (x.id === this.state.currentPizza.id && x.crust === this.state.currentPizzaCrustValue && x.size === this.state.currentPizzaSizeValue)))
             let nextPizza = {
                 ...this.state.currentPizza,
-                price: this.state.currentPizzaPrice,
+                price: ((this.state.currentPizzaPriceCrust + this.state.currentPizzaPriceSize) === 0 ?
+                    parseInt(this.state.currentPizza.price) :
+                    (this.state.currentPizzaPriceCrust + this.state.currentPizzaPriceSize)) * this.state.quantity,
                 size: this.state.currentPizzaSizeValue,
                 crust: this.state.currentPizzaCrustValue,
                 quantity: this.state.quantity
@@ -193,11 +199,10 @@ class Home extends Component {
     }
 
     render() {
-        const skeletonArr = [1,2,3,4,5,6,7,8];
+        const skeletonArr = [1, 2, 3, 4, 5, 6, 7, 8];
         return (
             <>
                 <Navbar handleSearch={(e) => this.handleSearch(e.target.value)}/>
-
 
 
                 {this.state.dataLoading ? (
@@ -230,7 +235,7 @@ class Home extends Component {
                             </div>
 
                         </div>
-                    ):
+                    ) :
 
                     (
                         <div className="menu-container">
@@ -253,7 +258,7 @@ class Home extends Component {
                                             >
                                                 {this.state.currentPizza.sizes &&
                                                 this.state.currentPizza.sizes.map((size) => (
-                                                    <option key={size} style={{ zIndex: 999999 }} value={size}>
+                                                    <option key={size} style={{zIndex: 999999}} value={size}>
                                                         {_.capitalize(size)}
                                                     </option>
                                                 ))}
@@ -266,7 +271,8 @@ class Home extends Component {
                                                 }
                                             >
                                                 {crustArray.map((item) => (
-                                                    <option style={{ zIndex: 999999 }} value={item.value} key={item.value}>
+                                                    <option style={{zIndex: 999999}} value={item.value}
+                                                            key={item.value}>
                                                         {_.capitalize(item.name)}
                                                     </option>
                                                 ))}
@@ -279,24 +285,27 @@ class Home extends Component {
                                                 }
                                             >
                                                 {quantityArray.map((item) => (
-                                                    <option  value={item} key={item}>
+                                                    <option value={item} key={item}>
                                                         {item}
                                                     </option>
                                                 ))}
                                             </select>
                                         </div>
-                                        <p className="current-price">₹{this.state.currentPizzaPrice}</p>
+                                        <p className="current-price">₹{((this.state.currentPizzaPriceCrust + this.state.currentPizzaPriceSize) === 0 ?
+                                            parseInt(this.state.currentPizza.price)
+                                            : (this.state.currentPizzaPriceCrust + this.state.currentPizzaPriceSize)) * this.state.quantity}</p>
                                     </div>
                                 </div>
                             </Modal>
 
-                            <div className=" search-box-home" >
-                                <input className="brand-input" placeholder="Search your favorite pizzas!" onChange={e => this.handleSearch(e.target.value)}/>
+                            <div className="search-box-home">
+                                <input className="brand-input" placeholder="Search your favorite pizzas!"
+                                       onChange={e => this.handleSearch(e.target.value)}/>
                                 <img alt="search" src={searchIcon}/>
                             </div>
                             <div className="menu-item-card">
                                 {this.state.pizzaList.filter((x) => !x.isSides).map(pizza => (
-                                    <div className="pizza-card" onClick={()=> this.handleModalShow(pizza)}>
+                                    <div className="pizza-card" onClick={() => this.handleModalShow(pizza)}>
                                         <img src={pizza.image}/>
 
                                         <div className="pizza-information">
@@ -306,7 +315,7 @@ class Home extends Component {
                                                 <p>{pizza.description}</p></div>
                                             <div className="pizza-price">
                                                 <img src={pizza.isVeg ? veg : noveg}/>
-                                                <span  >₹{pizza.price}</span>
+                                                <span>₹{pizza.price}</span>
                                             </div>
 
                                         </div>
@@ -322,19 +331,19 @@ class Home extends Component {
 
     handleModalClose() {
         this.setState({modalShow: false})
-      setTimeout(() => {
-          this.setState({
+        setTimeout(() => {
+            this.setState({
 
-              showOverlay: false,
-              currentPizza: {},
-              currentPizzaSizeValue: "medium",
-              currentPizzaPrice: 0,
-              currentPizzaCrustValue: "new_hand_tossed",
-              currentPizzaPriceSize: 0,
-              currentPizzaPriceCrust: 0,
-              quantity:1
-          });
-      },400)
+                showOverlay: false,
+                currentPizza: {},
+                currentPizzaSizeValue: "medium",
+                currentPizzaPrice: 0,
+                currentPizzaCrustValue: "new_hand_tossed",
+                currentPizzaPriceSize: 0,
+                currentPizzaPriceCrust: 0,
+                quantity: 1
+            });
+        }, 400)
     }
 }
 

@@ -298,12 +298,11 @@ a {
 
   .user-info-nav {
     right: 0;
-    margin: 0.7em 4em 0 1em;
+    margin: 0.7em 4em 0 0;
     cursor: pointer;
     transition: all 1s ease;
 
     .dropdown-menu {
-
       position: absolute;
       background-color: white;
       z-index: 9999;
@@ -316,10 +315,8 @@ a {
       transition: all 1s ease;
       border-radius: 5px;
       margin-top: 10px;
-      margin-right: 20px;
 
       a {
-        transition: all 1s ease;
         text-decoration: none;
         color: black;
       }
@@ -405,7 +402,7 @@ a {
     display: flex;
 
     .brand-input {
-      width: 90%;
+      width: 100%;
     }
 
     img {
@@ -474,6 +471,7 @@ a {
 .modal-window {
   & > div {
     .modal-container {
+      width: 100%;
       .current-price {
         text-align: center;
         font-size: 24px;
