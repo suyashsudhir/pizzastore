@@ -58,6 +58,8 @@ body {
   }
 }
 
+
+
 .account-card {
 
   width: 800px;
@@ -318,7 +320,9 @@ a {
   padding: 0 1rem;
   align-items: center;
   border: 1px solid #e5e5e5;
-
+.hamburger-menu-icon{
+  display: none;
+}
   .brand-btn {
     width: 100px;
     right: 0;
@@ -343,7 +347,7 @@ a {
 
   .user-info-nav {
     right: 0;
-    margin: 0.7em 4em 0 0;
+    margin: 0.7em 2em 0 0;
     cursor: pointer;
     transition: all 1s ease;
 
@@ -369,6 +373,52 @@ a {
   }
 }
 
+.nav-menu-resposive-container{
+  &:hover{
+    transition: all 1s ease;
+  }
+  visibility: hidden;
+  transition: visibility 1s cubic-bezier(0, .52, 0, 1);
+ .nav-menu-resposive{
+  transition: visibilty 1s cubic-bezier(0, .52, 0, 1);
+  border-left:1px solid  $brandColor;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .25);
+  position: absolute;
+  display: flex;
+  
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  right: 0;
+  margin: 0;
+  width: 200px;
+  height: 100%;
+  background-color: white;
+  z-index: 999;
+  .nav-link{
+
+    display: block !important;
+    margin: .7em 0;
+    width: 100%;
+    &:hover{
+      background-color: #282c34;
+      transition: 1s;
+    }
+  }
+} 
+}
+.nav-menu-resposive-container .active{
+  visibility: visible;
+  transition: visibilty 1s;
+  
+}
+
+.hamburger-active{
+  transition: visibilty 1s;
+  visibility: visible;
+  
+}
 .nav-menu {
   display: flex;
   justify-content: flex-start;
@@ -1004,6 +1054,12 @@ body.darkmode--activated {
       background-color: #1c1c24;
     }
   }
+.nav-menu-resposive{
+  background-color: #1c1c24;
+    .cart-icon{
+      fill: #fff !important;
+    }
+  }
 
   .navbar {
     border-color: #282c34;
@@ -1017,6 +1073,12 @@ body.darkmode--activated {
       fill: white;
 
 
+    }
+
+    .hamburger-menu-icon{
+      svg{
+        fill : #fff
+      }
     }
     a.brand-btn{
       font-size: 18px;
@@ -1045,6 +1107,3 @@ body.darkmode--activated {
   }
 
 }
-
-
-

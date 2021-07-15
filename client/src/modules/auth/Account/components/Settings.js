@@ -34,7 +34,7 @@ function Settings({ user }) {
     }
     const handleInfoUpdate = (values) => {
       setInfoUpdate(true);
-      axios.post("http://localhost:8080/users/updateInfo", {
+      axios.post("/users/updateInfo", {
         id: user.id,
         profilePicture: newProfileImage !== '' ? newProfileImage: user.profilePicture ,
         phone: !values.phone ? user.phone : values.phone,

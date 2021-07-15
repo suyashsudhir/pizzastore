@@ -21,12 +21,14 @@
 
       }
 
-      a.brand-btn {
+      .brand-btn {
 
-        width: 75px !important;
-        height: 25px !important;
-        text-align: center !important;
-        font-size: 14px !important;
+        width: 100px !important;
+        height: 50px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px !important;
       }
     }
 
@@ -52,7 +54,30 @@
   .navbar {
     padding: 0;
     width: 100vw;
+    .nav-item {
+    display: none;
+    margin: 2.5rem 0;
+  }
+.cart-icon-link{
+  display: none;
+}
+    .hamburger-menu-icon{
+      display: block;
+      margin-top: 10px;
+      margin-right: 10px;
+      margin-right: 1em;
+      margin-left: 0;
+      float: right !important;
+      img{
+        width: 50px;
+        height: 50px;
+      }
+    }
     .user-info-nav{
+      width: 100%;
+      .sb-avatar{
+        float: right;
+      }
       .dropdown-menu{
         right: 1em;
       }
@@ -61,6 +86,16 @@
   .nav-logo {
     font-size: 36px;
     margin-left: 10px;
+  }
+  //.nav-menu{
+  //  top
+  //}
+
+  .nav-menu-resposive{
+    
+    .nav-link{
+      display: block !important;
+    }
   }
 
 
@@ -269,10 +304,7 @@
   //  left: 0;
   //}
   //
-  .nav-item {
-    display: none;
-    margin: 2.5rem 0;
-  }
+  
   //
   //.hamburger {
   //  display: block;
