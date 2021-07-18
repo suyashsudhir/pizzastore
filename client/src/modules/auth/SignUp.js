@@ -32,7 +32,7 @@ function SignUp({history}) {
     return (
         <div className="signin-container">
             <div className="signin-wrapper">
-                <div className="signin-image" style={{height: '100vh'}}>
+                <div className="signin-image" >
                     <img src={signUpImage} alt="signup"/>
                 </div>
                 <div className="signin-form-wrapper">
@@ -82,8 +82,9 @@ function SignUp({history}) {
                                 {...register("confirmPassword")}
                             />
                             </div>
-                            <div className="signin-field">
+                            <div className="signin-field" style={{boxSizing: 'border-box'}}>
                             <button
+                            style={{boxSizing: 'border-box', width: 250}}
                                 className={"brand-btn"}
 
                                 type="submit"
@@ -94,6 +95,11 @@ function SignUp({history}) {
                             </div>
                             </div>
                         </form>
+                        <div className="new-account-link">
+                            Already have an account?&nbsp; <a href="/signin">
+                                Sign In
+                            </a>
+                        </div>
                     </div>
 
 

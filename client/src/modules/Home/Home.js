@@ -325,7 +325,7 @@ class Home extends Component {
                             </div>
                             <div className="menu-item-card">
                                 {this.state.pizzaList.filter((x) => !x.isSides).length > 0 && this.state.pizzaList.filter((x) => !x.isSides).map(pizza => (
-                                    <div className="pizza-card" onClick={() => this.handleModalShow(pizza)}>
+                                    <div className="pizza-card" onClick={() => this.handleModalShow(pizza)} key={pizza.id}>
                                         <img src={pizza.image} alt="pizza"/>
 
                                         <div className="pizza-information">

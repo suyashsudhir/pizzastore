@@ -153,6 +153,7 @@ body {
 
   &:focus {
     outline: none;
+    
 
   }
 }
@@ -164,7 +165,7 @@ body {
   font-size: 20px;
 }
 
-.brand-input:focus {
+.brand-input-error:focus {
   box-shadow: 1px 1px 1px rgba($color: #000000, $alpha: 0.25);
   border: 1px solid $brandColor;
   outline: none;
@@ -199,6 +200,7 @@ body {
 
 .navbar {
   height: 100px;
+  transition: 600ms;
 }
 
 .order-confirmation-dialog {
@@ -347,7 +349,7 @@ a {
 
   .user-info-nav {
     right: 0;
-    margin: 0.7em 2em 0 0;
+    margin: 0.7em 4em 0 0;
     cursor: pointer;
     transition: all 1s ease;
 
@@ -374,13 +376,12 @@ a {
 }
 
 .nav-menu-resposive-container{
-  &:hover{
-    transition: all 1s ease;
-  }
+  height: 100%;
+  
   visibility: hidden;
-  transition: visibility 1s cubic-bezier(0, .52, 0, 1);
+  opacity: 0;
  .nav-menu-resposive{
-  transition: visibilty 1s cubic-bezier(0, .52, 0, 1);
+  
   border-left:1px solid  $brandColor;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, .25);
   position: absolute;
@@ -393,7 +394,7 @@ a {
   right: 0;
   margin: 0;
   width: 200px;
-  height: 100%;
+  height: 100% !important;
   background-color: white;
   z-index: 999;
   .nav-link{
@@ -403,21 +404,23 @@ a {
     width: 100%;
     &:hover{
       background-color: #282c34;
-      transition: 1s;
+      
     }
   }
 } 
 }
-.nav-menu-resposive-container .active{
+.nav-menu-resposive-container.hamburger-active{
   visibility: visible;
-  transition: visibilty 1s;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s ease-in;
   
 }
 
 .hamburger-active{
-  transition: visibilty 1s;
-  visibility: visible;
   
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s ease-in;
 }
 .nav-menu {
   display: flex;
@@ -657,8 +660,10 @@ a {
           }
 
           .signin-field {
+            width: 80%;
             display: flex;
             align-items: center;
+            box-sizing: border-box;
             margin: 1em 1.5em;
             flex-direction: column;
 
@@ -678,7 +683,22 @@ a {
             input[type="password"] {
               width: 100%;
             }
+            input[type="email"] {
+              width: 100%;
+            }
+            
 
+          }
+        }
+        .new-account-link{
+          margin-top: 1em;
+          display: flex;
+          justify-content: center;
+          font-size: 18px;
+          margin-bottom: 1em;
+          a{
+            text-decoration: none;
+            color: $brandColor;
           }
         }
       }

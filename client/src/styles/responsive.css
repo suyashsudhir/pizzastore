@@ -28,26 +28,30 @@
   .landing-page-container .hero-text p {
     font-size: 14px !important;
   }
-  .landing-page-container .hero-text .brand-btn {
-    width: 100px !important;
-    height: 50px !important;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    font-size: 16px !important;
-  }
   .landing-page-container img {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
     margin-top: 5em;
     width: 100%;
+  }
+  .sign-in-button-container {
+    width: 100% !important;
+  }
+  .sign-in-button-container .brand-btn {
+    width: 200px !important;
+    height: 50px !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    float: right !important;
+    font-size: 16px !important;
   }
   .no-pizza-found {
     margin: 0 !important;
@@ -87,18 +91,26 @@
   }
   .navbar .user-info-nav {
     width: 100%;
+    margin-right: 0.7em;
   }
   .navbar .user-info-nav .sb-avatar {
     float: right;
   }
   .navbar .user-info-nav .dropdown-menu {
     right: 1em;
+    top: 4.5em !important;
   }
   .nav-logo {
     font-size: 36px;
     margin-left: 10px;
   }
-  .nav-menu-resposive .nav-link {
+  .nav-menu-resposive-container {
+    height: 100%;
+  }
+  .nav-menu-resposive-container .nav-menu-resposive {
+    height: 100% !important;
+  }
+  .nav-menu-resposive-container .nav-menu-resposive .nav-link {
     display: block !important;
   }
   .brand-btn {

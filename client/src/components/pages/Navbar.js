@@ -1,11 +1,15 @@
 import React, {useEffect, useState, useRef} from "react";
 import Darkmode from "darkmode-js";
-import hamburgerIcon from '../../assets/img/menu_white_24dp.svg';
+//import hamburgerIcon from '../../assets/img/menu_white_24dp.svg';
 
 import {axios} from '../../utils';
 import Avatar from "react-avatar";
 
+
+
+
 function Navbar() {
+  
     
     const [isAuthenticated, setisAuthenticated] = useState(true);
     const [authInfo, setauthInfo] = useState({});
@@ -13,6 +17,11 @@ function Navbar() {
     const hamburgerRef = useRef(null);
     const navMenuRef = useRef(null);
     const darkmode = new Darkmode();
+  //   window.onclick = (event) => {
+  //   if(isMenuOpen){
+  //     setIsMenuOPen(false)
+  //   }
+  // }
     useEffect(() => {
         axios
             .get("/auth/checkAuth")
@@ -29,10 +38,13 @@ function Navbar() {
     }, []);
 
     const handleLogout = () => {
-        axios.get("/logout").then(data => {
+        axios.get("https://enigmatic-dawn-15291.herokuapp.com/logout").then(data => {
+          console.log(data)
             window.localStorage.removeItem('token');
             window.localStorage.removeItem('cart');
             window.location.href = "/";
+        }).catch(e => {
+          console.log(e.response)
         });
     }
 
@@ -95,9 +107,13 @@ function Navbar() {
               )}
             </span>
           ) : (
+
+            <div className="sign-in-button-container">
+
             <a href={"/signin"} className="brand-btn">
               Sign In
             </a>
+            </div>
           )}
 
           <span

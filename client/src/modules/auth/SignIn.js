@@ -82,6 +82,7 @@ function SignIn({history}) {
                             <div className="signin-form">
                                 <div className="signin-field">
                                     <input
+                                    placeholder="Enter your email"
                                         className={`mb-3 ${
                                             errors.username ? "brand-input-error" : "brand-input"
                                         }`}
@@ -97,6 +98,7 @@ function SignIn({history}) {
                                 </div>
                                 <div className="signin-field">
                                     <input
+                                    placeholder="Enter your password"
                                         className={`mb-3 ${
                                             errors.password ? "brand-input-error" : "brand-input"
                                         }`}
@@ -132,6 +134,11 @@ function SignIn({history}) {
                                 </div>
                             </div>
                         </form>
+                        <div className="new-account-link">
+                            New here? <a href="/signup">
+                                Join Us
+                            </a>
+                        </div>
                     </div>
 
 

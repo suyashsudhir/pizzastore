@@ -21,15 +21,7 @@
 
       }
 
-      .brand-btn {
-
-        width: 100px !important;
-        height: 50px !important;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px !important;
-      }
+      
     }
 
     img {
@@ -38,6 +30,19 @@
       width: 100%;
     }
   }
+
+  .sign-in-button-container{
+        width: 100% !important;
+        .brand-btn {
+          width: 200px !important;
+          height: 50px !important;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          float: right !important;
+          font-size: 16px !important;
+        }
+      }
   .no-pizza-found{
     margin: 0 !important;
     padding: 0;
@@ -57,6 +62,7 @@
     .nav-item {
     display: none;
     margin: 2.5rem 0;
+    
   }
 .cart-icon-link{
   display: none;
@@ -75,11 +81,13 @@
     }
     .user-info-nav{
       width: 100%;
+      margin-right: 0.7em;
       .sb-avatar{
         float: right;
       }
       .dropdown-menu{
         right: 1em;
+        top: 4.5em !important;
       }
     }
   }
@@ -91,10 +99,13 @@
   //  top
   //}
 
-  .nav-menu-resposive{
-    
-    .nav-link{
-      display: block !important;
+  .nav-menu-resposive-container{
+    height: 100%;
+    .nav-menu-resposive{
+      height: 100% !important;
+      .nav-link{
+        display: block !important;
+      }
     }
   }
 
