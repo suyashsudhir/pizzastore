@@ -13,7 +13,7 @@ function Orders({ user }) {
     const [dataLoading, setDataLoading] = useState(true);
     useEffect(() => {
         axios.get(`/users/orders?email=${user.email}`).then(({data}) => {
-            console.log(data);
+        
             setorders(data);
             setDataLoading(false);
         });
@@ -21,7 +21,7 @@ function Orders({ user }) {
 
 
     const handleOpen = (order) => {
-        console.log(order)
+        
         setCurrentOrder(order);
         setModalOpen(true)
     }

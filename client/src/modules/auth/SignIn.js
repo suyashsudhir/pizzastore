@@ -43,7 +43,7 @@ function SignIn({history}) {
                 rememberMe: rememberMe,
             })
             .then(({data}) => {
-                console.log(data)
+                
                 setSigningIn(false)
 
                     window.localStorage.setItem("token", data);

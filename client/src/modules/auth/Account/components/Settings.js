@@ -15,7 +15,7 @@ function Settings({ user }) {
     const handleFileUpload = (event) => {
       const file = event.target.files[0]
       const ext = file.type.split('/')[1];
-      console.log(file);
+      
     const task = storage.ref(`profile_pictures/${user.id}.${ext}`).put(file);
 
     task.on(
@@ -27,7 +27,7 @@ function Settings({ user }) {
           .ref(`profile_pictures`)
           .child(`${user.id}.${ext}`).getDownloadURL().then(url => {
             setnewProfileImage(url);
-            console.log(url)
+            
             setfileUploading(false)
           })
     );
@@ -42,7 +42,7 @@ function Settings({ user }) {
         address: values.address ? values.address : user.address,
         email: user.email
       }).then(d => {
-        console.log(d.data)
+        
         setInfoUpdate(false);
       }).catch(e => console.log(e));
  }  

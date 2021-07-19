@@ -77,7 +77,7 @@ class Home extends Component {
     }
 
     handleModalShow = (pizza) => {
-        console.log(pizza);
+        
         this.setState({
             currentPizza: pizza,
             modalShow: true,
@@ -178,7 +178,7 @@ class Home extends Component {
         } else {
             const q = JSON.parse(window.localStorage.getItem('cart'));
             const index = _.findIndex(q.items,x => (x.id === this.state.currentPizza.id && x.crust === this.state.currentPizzaCrustValue && x.size === this.state.currentPizzaSizeValue))
-            console.log(index)
+            
 
             if (index>=0) {
                 const existingItem = _.remove(q.items, x => (x.id === this.state.currentPizza.id && x.crust === this.state.currentPizzaCrustValue && x.size === this.state.currentPizzaSizeValue))
@@ -187,7 +187,7 @@ class Home extends Component {
                     parseInt(this.state.currentPizza.price) :
                     (this.state.currentPizzaPriceCrust + this.state.currentPizzaPriceSize)) * this.state.quantity));
                 q.items.splice(index, 1, updatedItem);
-                console.log(q.items)
+                
                 cart = q;
 
 

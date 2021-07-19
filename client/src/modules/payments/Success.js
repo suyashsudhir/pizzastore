@@ -17,7 +17,7 @@ export default function Success() {
           phone: cart.phone,
         })
         .then((data) => {
-            console.log(JSON.parse(window.localStorage.getItem("cart")))
+            
           window.localStorage.removeItem("cart");
         });
     }

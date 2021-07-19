@@ -22,7 +22,7 @@ function Cart() {
 
     useEffect(() => {
         axios.get("/auth/checkAuth").then(({data}) => {
-            console.log(data)
+            
             setuser(data.information);
         }).catch(e => {
         });
@@ -32,7 +32,7 @@ function Cart() {
             cart.items.forEach((item) => {
                 final = final + (item.price);
             });
-            console.log(final);
+            
             const tax = final * 0.18;
 
             setfinalPrice({
@@ -44,7 +44,7 @@ function Cart() {
     }, [cartUpdated, cart, cartEmpty]);
 
     const handleCheckout = (values) => {
-        console.log(values)
+        
          if( values.email === '' && user.email ===''){
             setError("email", {
                 type: 'required',

@@ -40,12 +40,12 @@ function Navbar() {
 
     const handleLogout = () => {
         axios.get("https://enigmatic-dawn-15291.herokuapp.com/logout").then(data => {
-          console.log(data)
+          
             window.localStorage.removeItem('token');
             window.localStorage.removeItem('cart');
             window.location.href = "/";
         }).catch(e => {
-          console.log(e.response)
+          console.log("error in logout")
         });
     }
 

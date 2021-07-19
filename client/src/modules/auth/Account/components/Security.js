@@ -13,7 +13,7 @@ function Security({ user }) {
     formState: { errors },
   } = useForm();
   const handleChangePassword = (values) => {
-    console.log(values)
+    
       setupdatingPassword(true);
     if (values.password === "" || !values.password) {
       setError("password", {
