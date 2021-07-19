@@ -12,7 +12,7 @@ const AuthSwitch = ({
     const [isAuthenticated, setisAuthenticated] = useState(true);
     const [authInfo, setauthInfo] = useState({})
     useEffect(() => {
-        axios.get("/auth/checkAuth").then(({data}) => {
+        axios.get("https://enigmatic-dawn-15291.herokuapp.com/auth/checkAuth").then(({data}) => {
             if(data.isAuthenticated){
                 setisAuthenticated(true);
                 setauthInfo(data.information);

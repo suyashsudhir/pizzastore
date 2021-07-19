@@ -34,7 +34,7 @@ function Settings({ user }) {
     }
     const handleInfoUpdate = (values) => {
       setInfoUpdate(true);
-      axios.post("/users/updateInfo", {
+      axios.post("https://enigmatic-dawn-15291.herokuapp.com/users/updateInfo", {
         id: user.id,
         profilePicture: newProfileImage !== '' ? newProfileImage: user.profilePicture ,
         phone: !values.phone ? user.phone : values.phone,

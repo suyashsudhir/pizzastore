@@ -54,7 +54,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        axios.get("/common/test").then(({data}) => {
+        axios.get("https://enigmatic-dawn-15291.herokuapp.com/common/test").then(({data}) => {
             let l = _.cloneDeep(data.filter((x) => !x.isSides));
 
             for (var a = 0; a < l.length; a++) {

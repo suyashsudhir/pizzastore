@@ -46,7 +46,7 @@ function Security({ user }) {
       setupdatingPassword(false);
     } else {
       axios
-        .post("/users/updatePassword", {
+        .post("https://enigmatic-dawn-15291.herokuapp.com/users/updatePassword", {
           userid: user.id,
           password: values.password,
           email: user.email,

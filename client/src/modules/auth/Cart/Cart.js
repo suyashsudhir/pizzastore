@@ -21,7 +21,7 @@ function Cart() {
     })
 
     useEffect(() => {
-        axios.get("/auth/checkAuth").then(({data}) => {
+        axios.get("https://enigmatic-dawn-15291.herokuapp.com/auth/checkAuth").then(({data}) => {
             
             setuser(data.information);
         }).catch(e => {
@@ -75,7 +75,7 @@ function Cart() {
         };
 
         axios
-            .post("/common/create-stripe-checkout", body)
+            .post("https://enigmatic-dawn-15291.herokuapp.com/common/create-stripe-checkout", body)
             .then((data) => {
                 window.location.href = data.data;
             });

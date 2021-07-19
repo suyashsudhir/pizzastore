@@ -25,7 +25,7 @@ function Navbar() {
   // }
     useEffect(() => {
         axios
-            .get("/auth/checkAuth")
+            .get("https://enigmatic-dawn-15291.herokuapp.com/auth/checkAuth")
             .then(({data}) => {
                 if (data.isAuthenticated) {
                     setisAuthenticated(true);
@@ -54,7 +54,7 @@ function Navbar() {
       <>
         <nav className="navbar">
           <a href="/" className="nav-logo">
-            PizzaPlace
+            BestPizzas
           </a>
           <ul
             className="nav-menu"

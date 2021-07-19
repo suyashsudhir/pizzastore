@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { axios } from "../../../../utils";
 import Modal from "../../../../components/Modal/Modal";
 import Skeleton from "react-loading-skeleton";
+import _ from 'lodash';
 
 
 function Orders({ user }) {
@@ -12,7 +13,7 @@ function Orders({ user }) {
     const [currentOrder, setCurrentOrder] = useState({});
     const [dataLoading, setDataLoading] = useState(true);
     useEffect(() => {
-        axios.get(`/users/orders?email=${user.email}`).then(({data}) => {
+        axios.get(`https://enigmatic-dawn-15291.herokuapp.com/users/orders?email=${user.email}`).then(({data}) => {
         
             setorders(data);
             setDataLoading(false);
@@ -28,14 +29,23 @@ function Orders({ user }) {
     const skeletonArr = [1,2,3,4];
     return (
         <div className="orders-container">
-            <Modal footer={false} show={modalOpen} onClose={() => setModalOpen(false)}>
+            <Modal footer={false} show={modalOpen} onClose={() => setModalOpen(false)} title={currentOrder.id}>
                 <div className="order-details-container">
+                    <div>
+
                     {currentOrder.pizzaList &&currentOrder.pizzaList.map(item => (
+                        <>
                         <div className="order-item-info">
-                            <p>{item.name}</p>
-                            <p>{item.id}</p>
+                            <p className="font-18"><strong>{_.startCase(item.crust)}</strong> x {item.quantity}</p>
+                            <p>{_.startCase(item.crust)}</p>
+                             <p>{_.startCase(item.size)}</p>
                         </div>
+                        
+                        
+                        </>
                     ))}
+                    </div>
+                    <p className="font-18"><strong>Total:</strong> ₹{currentOrder.total}</p>
                 </div>
             </Modal>
             <h1>Recent Orders</h1>

@@ -9,7 +9,7 @@ export default function Success() {
       let cart = JSON.parse(window.localStorage.getItem("cart"));
 
       axios
-        .post("/common/neworder", {
+        .post("https://enigmatic-dawn-15291.herokuapp.com/common/neworder", {
           total: cart.total,
           email: cart.email,
           address: cart.address,

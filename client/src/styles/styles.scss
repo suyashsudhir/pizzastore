@@ -79,6 +79,9 @@ body {
 .font-18 {
   font-size: 18px !important;
 }
+.font-24{
+  font-size: 24px !important;
+}
 
 .cursor-pointer {
   cursor: pointer !important;
@@ -887,10 +890,19 @@ a {
 }
 
 .order-details-container {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
   .order-item-info {
-    display: grid;
-    grid-template-columns: 4fr 1fr;
+  //   display: grid;
+  // grid-template-columns: 4fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     margin: 0;
+    & > *{
+      margin: 0;
+    }
 
   }
 }

@@ -10,7 +10,7 @@ function SignUp({history}) {
 
  const handleSignUpSubmit = values => {
     axios
-      .post("/userSignup", {
+      .post("https://enigmatic-dawn-15291.herokuapp.com/userSignup", {
         fullname: values.name,
         email: values.email,
         password: values.password,
